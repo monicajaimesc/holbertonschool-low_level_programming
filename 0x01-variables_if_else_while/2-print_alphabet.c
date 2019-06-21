@@ -1,15 +1,15 @@
 #include <stdio.h>
 /**
-* main - Entry point
-*
-* Return: Always 0 (Success)
-*/
+ * main - Entry point
+ *
+ * Return: Always 0 (Success)
+ */
 int main(void)
 {
-char alp;
-for (alp = 'a' ; alp <= 'z' ; alp++)
+char al;
+for (al = 'a' ; al <= 'z' ; al++)
 {
-    putchar(alp);
+	putchar(al);
 }
 putchar('\n');
 return (0);
