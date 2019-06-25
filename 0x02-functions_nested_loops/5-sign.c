@@ -1,10 +1,14 @@
 #include "holberton.h"
 
 /**
- * print_sing - print_sign.
- *@n: The character to check
- * Return: Always 0.
+ * print_sign - print the sign of a number
+ * @n: The character to check
+ *
+ * Return: 1 and prints + if n is positive
+ * Returns 0 and prints 0 if n is zero
+ * Returns -1 and print - of n is negative
  */
+
 int print_sign(int n)
 
 {
