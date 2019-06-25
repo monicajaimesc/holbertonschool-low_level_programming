@@ -1,7 +1,7 @@
 #include "holberton.h"
 
 /**
- * _islower - check for alphabetic character.
+ * print_sing - print_sign.
  *@n: The character to check
  * Return: Always 0.
  */
