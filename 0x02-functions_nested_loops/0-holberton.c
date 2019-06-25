@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -9,15 +8,13 @@
 
 int main(void)
 {
-	char *c;
 	int i;
+	char string[9] = "Holberton";
 
-	c = "Holberton";
-
-	for (i = 0; i <= sizeof(c); i++)
+	for (i = 0; i < 9; i++)
 	{
-		_putchar(c[i]);
+		_putchar(string[i]);
 	}
-	_puthcar('\n');
+	_putchar('\n');
 	return (0);
 }
