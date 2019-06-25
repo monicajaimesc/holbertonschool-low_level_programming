@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "holberton.h"
 
 /**
- * main - check the code for Holberton School students.
+ *print_alphabet_x10 - print the alphabet from a to z
  *
  * Return: Always 0.
  */
