@@ -3,7 +3,7 @@
 
 /**
  *print_to_98 - prints number from n to 98
- * 
+ *
  * @n:parameters
  * Return: nothing
  */
