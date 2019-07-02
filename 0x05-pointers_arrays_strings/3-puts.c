@@ -7,6 +7,7 @@
 */
 
 void _puts(char *str)
+
 {
 	int printstr;
 
