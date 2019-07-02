@@ -9,11 +9,11 @@
 
 void print_rev(char *s)
 {
-	int phrarev, cont;
+	int phrarev, count;
 
-	cont = _strlen(s);
+	count = _strlen(s);
 
-	for (phrarev = cont; phrarev >= 0; phrarev--)
+	for (phrarev = count; phrarev >= 0; phrarev--)
 	{
 		_putchar(s[phrarev]);
 	}
@@ -27,12 +27,12 @@ void print_rev(char *s)
 */
 int _strlen(char *s)
 {
-	int cont = 0;
+	int count = 0;
 
-	while (s[cont])
+	while (s[count])
 
 	{
-		cont++;
+		count++;
 	}
-	return (cont);
+	return (count);
 }
