@@ -9,13 +9,30 @@
 void _puts(char *str)
 
 {
-	int printstr = 0;
+	int printstr, count;
 
-	while (str[printstr])
+	count = _strlen(str);
+
+	for (printstr = 0; printstr < count; printstr++)
 
 	{
 		_putchar(str[printstr]);
-		printstr++;
 	}
-_putchar('\n');
+	_putchar('\n');
+}
+
+/**
+* _strlen - returns the length of a string
+*@s: pointer variable
+* Return: nothing
+*/
+int _strlen(char *s)
+{
+	int count = 0;
+
+	while (s[count])
+		count++;
+	{
+		return (count);
+	}
 }
