@@ -11,7 +11,7 @@ void print_rev(char *s)
 {
 	int phrarev, count;
 
-	count = _strlen(s) -1;
+	count = _strlen(s) - 1;
 
 	for (phrarev = count; phrarev >= 0; phrarev--)
 	{
