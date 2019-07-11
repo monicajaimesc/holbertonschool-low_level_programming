@@ -1,6 +1,24 @@
 #include "holberton.h"
 
 /**
+ * auxiliar - base
+ * @n : number
+ * @base : base
+ * Return: auxliar and -1
+ */
+
+int auxiliar(int base, int n)
+{
+	if ((base * base) == n)
+		return (base);
+
+	if ((base * base) < n)
+		return (auxiliar(base + 1, n));
+	else
+		return (-1);
+}
+
+/**
  * _sqrt_recursion - natural square of a number
  *@n : number
  *
@@ -15,26 +33,7 @@ int _sqrt_recursion(int n)
 		return (1);
 	else if (n < 0)
 		return (-1);
-	else 
-		return (auxiliar(2, n));	
-
-}
-
-/**
- * auxiliar - base
- * @n : number
- * @base : base
- * return : auxliar and -1;
- */
-
-int auxiliar(int base, int n)
-{
-	if ((base * base) == n)
-		return (base);
-
-	if ((base * base) < n)
-		return (auxiliar(base + 1, n));
 	else
-		return (-1);
+		return (auxiliar(2, n));
 }
 
