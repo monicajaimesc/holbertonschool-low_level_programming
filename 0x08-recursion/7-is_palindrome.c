@@ -2,87 +2,50 @@
 #include <stdio.h>
 
 /**
- * _strlen_recursion - it is a palindrome string or not
- * @s: string
+ * lenght - Calculate the lenght of a string
+ * @s: The array to evaluate
  *
- * Return: 1 one is true 0 when is false
- * On error, -1 is returned, and errno is set appropriately.
+ *
+ * Return: lenght
+ *
  */
-int _strlen_recursion(char *s)
+int lenght(char *s)
 {
-	int count;
-
-	if (*s != '\0')
-	{
-		count = _strlen_recursion(s + 1);
-		++count;
-		return (count);
-	}
-	else
-	{
+	if (*s == '\0')
 		return (0);
-	}
-}
-
-/**
- * _mirror - Calculate the lenght of a string
- * @s: The array to evaluate
- * @n: The length of the array
- *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
- */
-int _mirror(char *s, int n)
-{
-	int cont = n - 1, igl;
-
-	if (cont == 0)
-	{
-		return (1);
-	}
-	if (*s == *(s + cont))
-	{
-		igl = _mirror(s + 1, n - 2);
-		if (igl == -1)
-		{
-			return (-2);
-		}
-		else
-		{
-			return (1);
-		}
-	}
 	else
-	{
-		return (-1);
-	}
+		return (1 + lenght(++s));
 }
+
 /**
- * is_palindrome - Fucntion to determine if the string is a palindrome
- * @s: The array to evaluate
+ * palindrome - it is a palindrome yes or not (1 and 0)
  *
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately.
+ * @s: string
+ * @counter: counter
+ * Return: 0 or 1.
+ *
+ */
+
+int palindrome(int counter, char *s)
+{
+
+	if (*s == '\0')
+		return (1);
+
+	if (*s != *(s + lenght(s) - counter))
+		return (0);
+	else
+		return (palindrome(++counter, ++s));
+}
+
+/**
+ * is_palindrome - returns 1 if a string is a palindrome and 0 if not
+ *
+ * @s: string
+ * Return: 1 for yes 0 for no.
+ *
  */
 int is_palindrome(char *s)
 {
-	int tam, eql;
-
-	tam = _strlen_recursion(s);
-	if (tam == 0)
-	{
-		return (1);
-	}
-	else
-	{
-		eql = _mirror(s, tam);
-		if (eql == 1)
-		{
-			return (1);
-		}
-		else
-		{
-			return (0);
-		}
-	}
+	return (palindrome(1, s));
 }
