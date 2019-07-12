@@ -2,26 +2,10 @@
 #include <stdio.h>
 
 /**
- * is_prime_number - primer number
- *@n : number
- *
- * Return: prime number or not (1 and 0)
- */
-
-int is_prime_number(int n)
-{
-	if (n <= 0)
-		return (0);
-	else
-		return (denominator(2, n));
-
-}
-
-/**
- * denominator - denominator 
+ * denominator - denominator
  *@n: number
  *@den: denominator
- * Return: it's or not 
+ * Return: it's or not
  */
 
 int denominator(int den, int n)
@@ -31,6 +15,21 @@ int denominator(int den, int n)
 	if (n % den == 0)
 		return (0);
 	else
-		return (denominator(n, den + 1));
+		return (denominator(den + 1, n));
+}
+
+/**
+ * is_prime_number - primer number
+ *@n : number
+ *
+ * Return: prime number or not (1 and 0)
+ */
+
+int is_prime_number(int n)
+{
+	if (n <= 1)
+		return (0);
+	else
+		return (denominator(2, n));
 
 }
