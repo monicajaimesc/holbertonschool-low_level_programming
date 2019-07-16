@@ -49,7 +49,7 @@ char *_strdup(char *str)
 	{
 		*(ss + i) = *(str + i);
 	}
-	*(ss + i) = '\0';	
+	*(ss + i) = '\0';
 
 return (ss);
 }
