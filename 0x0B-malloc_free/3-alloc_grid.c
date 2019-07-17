@@ -6,7 +6,7 @@
 /**
  * alloc_grid - returns a ptr to a 2 dimensional array int
  *@width : columns
- *@height ; rows
+ *@height : rows
  *
  * Return: dest
  */
@@ -26,7 +26,7 @@ int **alloc_grid(int width, int height)
 		return (NULL);
 
 	}
-	/* print the element of the array via pointer */ 
+	/* print the element of the array via pointer */
 
 	for (i = 0; i < height; i++)
 	{
@@ -39,8 +39,8 @@ int **alloc_grid(int width, int height)
 			return (NULL);
 		}
 	}
-	/* height = rows done into pointer and free of trash */ 
- 
+	/* height = rows done into pointer and free of trash */
+
 	/* create pointer for the two dimensional array with address */
 
 	for (i = 0 ; i < height ; i++)
@@ -53,4 +53,3 @@ int **alloc_grid(int width, int height)
 
 	return (p);
 }
-
