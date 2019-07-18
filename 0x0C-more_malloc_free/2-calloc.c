@@ -15,12 +15,12 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	unsigned int sizetotal;
 /*nmemb is n * size (formula)*/
 	sizetotal = nmemb * size;
-
+/*call malloc*/
+	p = (char *)malloc(sizetotal);
 /*generales conditionales given*/
 	if (nmemb == 0 || size == 0)
 		return (NULL);
-/*call malloc*/
-	p = (char *)malloc(sizetotal);
+
 	if (p == NULL)
 		return (NULL);
 /*populate size*/
@@ -30,6 +30,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		p[i] = 0;
 		i++;
 	}
+
 
 return (p);
 }
