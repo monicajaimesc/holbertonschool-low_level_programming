@@ -21,6 +21,8 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 /*call malloc*/
 	p = (char *)malloc(sizetotal);
+	if (p == NULL)
+		return (NULL);
 /*populate size*/
 /*nmemb will be filled the 98 big box each one divide in * char*/
 	for (i = 0; i < sizetotal; i++)
