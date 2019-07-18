@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <string.h>
 
 /**
 * _calloc - allocates memory for an array
@@ -21,7 +20,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	sizetotal = nmemb * size;
 
 /*call malloc*/
-	p = (char *)malloc(sizetotal);
+	p = malloc(sizetotal);
 
 	if (p == NULL)
 		return (NULL);
