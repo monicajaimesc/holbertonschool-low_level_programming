@@ -6,6 +6,7 @@
 * _calloc - allocates memory for an array
 *@nmemb : is n
 *@size : char that it is a an int
+* Return: pointer
 */
 
 void *_calloc(unsigned int nmemb, unsigned int size)
@@ -13,13 +14,14 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	unsigned int i;
 	char *p;
 	unsigned int sizetotal;
-/*nmemb is n * size (formula)*/
-	sizetotal = nmemb * size;
-/*call malloc*/
-	p = (char *)malloc(sizetotal);
 /*generales conditionales given*/
 	if (nmemb == 0 || size == 0)
 		return (NULL);
+/*nmemb is n * size (formula)*/
+	sizetotal = nmemb * size;
+
+/*call malloc*/
+	p = (char *)malloc(sizetotal);
 
 	if (p == NULL)
 		return (NULL);
@@ -30,7 +32,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		p[i] = 0;
 		i++;
 	}
-
 
 return (p);
 }
