@@ -43,7 +43,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	if (n >= size2)
 	{
 		n = size2;
-	{
+	}
 	ss = (char *) malloc(size1 + n + 1);
 /*verification memory space */
 		if (ss == NULL)
@@ -54,8 +54,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	{
 		ss[i] = s1[i];
 	}
-/*copy second string in the array */
-	for (j = 0; s2[j] != '\0'; j++)
+/*copy second string until n (given) */
+	for (j = 0; j < n; j++)
 	{
 		ss[i] = s2[j];
 		i++;
