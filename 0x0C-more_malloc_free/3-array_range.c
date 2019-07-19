@@ -1,15 +1,16 @@
 #include "holberton.h"
 #include <stdlib.h>
-
-/*
- * array_range - creates an array of integers
+/**
+ *array_range - prints an array of integers
  *@min : min value of the array
  *@max : max value of the array
- *
+ * Return: pointer
  */
+
 int *array_range(int min, int max)
 {
-int n, n2;
+	int n;
+	int n2;
 	int *p;
 /*generals conditionals given*/
 	if (min > max)
