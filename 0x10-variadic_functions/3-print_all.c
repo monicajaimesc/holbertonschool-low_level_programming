@@ -5,8 +5,8 @@
 
 /**
  * print_all - print anything
- * @separator: string to be printed between numbers
- * @n: number of integers passed to the function
+ * @format: list of types of arguments passed to the function
+ * @...: elipsis
  * Return: nothing, void
  */
 void print_all(const char *const format, ...)
@@ -16,7 +16,6 @@ void print_all(const char *const format, ...)
 	va_list all;
 
 	va_start(all, format);
-
 		while (format[i] == '\0')
 		{
 			printf("\n");
@@ -39,7 +38,7 @@ void print_all(const char *const format, ...)
 			str = va_arg(all, char *);
 			if (str != NULL)
 			{
-				printf("%s",str);
+				printf("%s", str);
 				break;
 			}
 			printf("(nil)");
@@ -49,9 +48,7 @@ void print_all(const char *const format, ...)
 			format[i] == 'f') && (format[i + 1] != '\0'))
 			printf(", ");
 		i++;
-
 		}
 		printf("\n");
 		va_end(all);
-
 }
