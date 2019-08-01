@@ -9,7 +9,7 @@
  *
  * Return: string leng
  */
-int leng_string(char *str)
+int leng_string(const char *str)
 {
 	int len = 0;
 
@@ -31,20 +31,18 @@ return (len);
 
 list_t *add_node(list_t **head, const char *str)
 {
-	char *copystr;
 	list_t *new;
 
 	if (head == NULL)
 		return (NULL);
 
-	copystr = strdup(str);
 	new = malloc(sizeof(list_t));
 
 	if (new == NULL)
 		return (NULL);
 
-		new->str = copystr;
-		new->len = leng_string(copystr);
+		new->str = strdup(str);
+		new->len = leng_string(str);
 		new->next = *head;
 		*head = new;
 
