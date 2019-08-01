@@ -40,6 +40,9 @@ list_t *add_node(list_t **head, const char *str)
 	if (new == NULL)
 		return (NULL);
 
+	if (head == NULL)
+		return (NULL);
+
 		new->str = copystr;
 		new->len = leng_string(copystr);
 		new->next = *head;
