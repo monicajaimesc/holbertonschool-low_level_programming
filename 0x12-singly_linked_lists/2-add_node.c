@@ -34,13 +34,13 @@ list_t *add_node(list_t **head, const char *str)
 	char *copystr;
 	list_t *new;
 
+	if (head == NULL)
+		return (NULL);
+
 	copystr = strdup(str);
 	new = malloc(sizeof(list_t));
 
 	if (new == NULL)
-		return (NULL);
-
-	if (head == NULL)
 		return (NULL);
 
 		new->str = copystr;
@@ -49,5 +49,4 @@ list_t *add_node(list_t **head, const char *str)
 		*head = new;
 
 return (new);
-free(new);
 }
