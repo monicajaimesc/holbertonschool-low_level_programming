@@ -17,13 +17,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	if (*head == NULL) /*head value is null return -1*/
 		return (-1);
 	temp = *head;
-	if (index == 0 && head != NULL)
-	{
-		nodo = temp; /*to hold the first nodo saved*/
-		*head = temp->next; /*change head*/
-		free(nodo);/*free old head*/
-		return (1);
-	}
 
 	while (head)
 	{
@@ -35,6 +28,16 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 			free(nodo);
 			return (1);
 		}
+	else if (index == 0)
+	{
+		nodo = temp; /*to hold the first nodo saved*/
+		*head = temp->next; /*change head*/
+		free(nodo);/*free old head*/
+		return (1);
+	}
+
+
+
 	temp = temp->next;
 	counter++;
 	}
