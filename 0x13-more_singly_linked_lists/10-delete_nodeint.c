@@ -17,7 +17,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		return (-1);
 	temp = *head;
 
-	while (head)
+	while (temp)
 	{
 		/*find previos node of node to be deleted*/
 		if ((counter + 1) == index)
