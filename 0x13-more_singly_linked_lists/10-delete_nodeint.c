@@ -17,9 +17,9 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	if (*head == NULL) /*head value is null return -1*/
 		return (-1);
 	temp = *head;
-	if (index == 0)
+	if (index == 0 && head != NULL)
 	{
-		nodo = temp;
+		nodo = temp; /*to hold the first nodo saved*/
 		*head = temp->next; /*change head*/
 		free(nodo);/*free old head*/
 		return (1);
