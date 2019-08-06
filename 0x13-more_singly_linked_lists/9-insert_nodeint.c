@@ -24,6 +24,7 @@ new->n = n;
 	if (idx == 0)
 	{
 		new->next = *head;
+		*head = new;
 		return (new);
 	/*new will be equal to the first elemento, new first element now*/
 	}
