@@ -4,26 +4,6 @@
 #include "lists.h"
 
 /**
- * listint_len - returns the number of elements in a linked list_t list
- *@h: header pointer
- *
- * Return: number of elements in the linked list_t list
- */
-
-size_t listint_len(const listint_t *h)
-{
-	size_t counter = 0;
-
-	while (h)
-	{
-		h = h->next; /*now the header is the nex value of the list*/
-		counter++;
-	}
-
-return (counter);
-}
-
-/**
  * insert_nodeint_at_index - inserts a new node at a given position
  *@head: pointer to the head
  *@idx: index of the list where the new node should be added
@@ -42,18 +22,18 @@ new = malloc(sizeof(listint_t));
 
 	temp = *head;
 
+new->n = n;
 	if (idx == 0)
 	{
-		new->n = n;
 		new->next = *head;
 		return (new);
 	/*new will be equal to the first elemento, new first element now*/
 	}
+	temp = *head;
 	while (temp)
 	{
 		if (counter + 1 == idx)
 		{
-			new->n = n;
 			new->next = temp->next;
 			temp->next = new;
 			return (new); /*new is in the end*/
