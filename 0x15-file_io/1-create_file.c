@@ -26,20 +26,22 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1)
 		return (-1);/*on failure*/
 
-	if (text_content == NULL)
+	if (text_content != NULL)
 	{
-		while (len != '\0')
+		while (text_content[len] != '\0')
 		{
-/*file descriptor, pointer to a buffer, number bytes to write*/
 			len++;
+		}
+/*file descriptor, pointer to a buffer, number bytes to write*/
+
 			size_bytes = write(fd, text_content, len);
 
 			if (size_bytes == -1) /*on failure*/
-
+			{
 				write(STDOUT_FILENO, "fails", 6);
 				return (-1);
+			}
 
-		}
 	}
 	close(fd);
 	return (1);
