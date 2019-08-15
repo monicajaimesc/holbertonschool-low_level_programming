@@ -1,14 +1,13 @@
 #include "holberton.h"
-#include <stdlib.h>
 #include <stdio.h>
 
 /*
  *print_close - error printed
  *@file: file
  */
-void print_close(char *file)
+void print_close(int file)
 {
-	dprintf(STDERR_FILENO, "Error: Can't close fd %s\n", file);
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
 	exit(100);
 }
 
@@ -41,41 +40,50 @@ void print_read(char *file)
  */
 int main(int argc, char **argv)
 {
-	int fd_read, fd_write, fd_from, fd_to, fd_close;
-	char buffer[1024];
+	int fd_read, fd_write, fd_close, fd_close_to, fd, size;
+	char buffer[1024], *fd_from, *fd_to;
+	
+	fd_from = argv[1];
+	fd_to = argv[2];
 
 	if (argc != 3)
 	{
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
 		exit(97);
 	}		
-	fd_from = open(argv[1], O_RDONLY);
-	if (fd_from == -1)
-		print_read(argv[1]);
+	fd_read = open(fd_from, O_RDONLY);
+	if (fd_read == -1)
+		print_read(fd_from);
 	
-	fd_to = open(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0664);
-	if (fd_to == -1)
-		print_write(argv[2]);
+	fd_write = open(fd_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (fd_write == -1)
+		print_write(fd_to);
+	fd = read(fd_read, buffer, 1024);
+		print_read(fd_to);
+	if (fd == -1)
+		print_read(fd_from);
+	size = write(fd_write, buffer, fd);
+	if (size == -1)
+		print_write(fd_to);
 		
-	while(fd_read == 1024)
+	while(fd == 1024)
 	{
-		fd_read = read(fd_from, buffer, 1024);
-		if (fd_read == -1)
-			print_read(argv[1]);
+		fd = read(fd_read, buffer, 1024);
+		if (fd == -1)
+			print_read(fd_from);
 			
-		fd_write = write(fd_to, buffer, fd_read);
-		if (fd_write == -1)
-			print_write(argv[2]);
-	
+		size = write(fd_write, buffer, fd_read);
+		if (size == -1)
+			print_write(fd_to);
 	}
 	
-	fd_close = close(fd_from);
+	fd_close = close(fd_read);
 		if (fd_close == -1)
-			print_close(argv[1]);
+			print_close(fd_read);
 	
-	fd_close = close(fd_to);
-		if (fd_close == -1)
-			print_close(argv[2]);
+	fd_close_to = close(fd_write);
+		if (fd_close_to == -1)
+			print_close(fd_write);
 
 	return (0);
 }
