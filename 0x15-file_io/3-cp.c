@@ -1,89 +1,54 @@
 #include "holberton.h"
-#include <stdio.h>
-
-/*
- *print_close - error printed
- *@file: file
- */
-void print_close(int file)
-{
-	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file);
-	exit(100);
-}
-
-/* 
- *print_write - print write errr
- *@file: file to be printed
- */
-void print_write(char *file)
-{ 
-	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file);
-	exit(99);
-}
-
-/*
- *print_read - error printed
- *@file: file to be printed
- */
-void print_read(char *file)
-{
-	dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file);
-	exit(98);
-}
+#define BUF_SIZE 1024
 
 /**
- * main - function that copies the content of a file to another file.
- * @argc: Filename
- * @argv: Text to add to the file.
+ * main - contaign a function to cp file
+ * @arc: arguments
+ * @arv: string
  *
- * Return: 1 - Success or -1 - Failure.
+ * Return: 0 to success
  */
-int main(int argc, char **argv)
-{
-	int fd_read, fd_write, fd_close, fd_close_to, fd, size;
-	char buffer[1024], *fd_from, *fd_to;
-	
-	fd_from = argv[1];
-	fd_to = argv[2];
 
-	if (argc != 3)
+int main(int arc, char **arv)
+{
+	int size_to, size_from, file_to, file_from, close_file;
+	char buf[BUF_SIZE];
+
+	if (arc != 3)
+		dprintf(STDERR_FILENO, "Usage: cp file_from fileto\n"), exit(97);
+
+	file_to = open(arv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	if (file_to == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arv[2]), exit(99);
+
+	file_from = open(arv[1], O_RDONLY);
+	if (file_from == -1)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arv[1]), exit(98);
+
+	size_from = read(file_from, buf, BUF_SIZE);
+	if (size_from == -1)
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arv[1]), exit(98);
+
+	size_to = write(file_to, buf, size_from);
+	if (size_to == -1)
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", arv[2]), exit(99);
+
+	while (size_from == 1024)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to");
-		exit(97);
-	}		
-	fd_read = open(fd_from, O_RDONLY);
-	if (fd_read == -1)
-		print_read(fd_from);
-	
-	fd_write = open(fd_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
-	if (fd_write == -1)
-		print_write(fd_to);
-	fd = read(fd_read, buffer, 1024);
-		print_read(fd_to);
-	if (fd == -1)
-		print_read(fd_from);
-	size = write(fd_write, buffer, fd);
-	if (size == -1)
-		print_write(fd_to);
-		
-	while(fd == 1024)
-	{
-		fd = read(fd_read, buffer, 1024);
-		if (fd == -1)
-			print_read(fd_from);
-			
-		size = write(fd_write, buffer, fd_read);
-		if (size == -1)
-			print_write(fd_to);
+		size_from = read(file_from, buf, BUF_SIZE);
+		size_to = write(file_to, buf, size_from);
 	}
-	
-	fd_close = close(fd_read);
-		if (fd_close == -1)
-			print_close(fd_read);
-	
-	fd_close_to = close(fd_write);
-		if (fd_close_to == -1)
-			print_close(fd_write);
+
+	close_file = close(file_from);
+
+	if (close_file == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from), exit(100);
+
+	close_file = close(file_to);
+	if (close_file == -1)
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to), exit(100);
 
 	return (0);
 }
+
+
