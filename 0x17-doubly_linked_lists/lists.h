@@ -1,7 +1,6 @@
-#if !defined(lISTS_H)
-#define LIST_H
+#ifndef LISTS_H
+#define LISTS_H
 
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -27,4 +26,4 @@ dlistint_t *add_dnodeint(dlistint_t **head, const int n);
 
 
 
-#endif /* !defined(LIST_H) */
+#endif /* LIST_H */
