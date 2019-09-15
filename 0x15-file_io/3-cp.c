@@ -12,7 +12,7 @@
 int main(int arc, char **arv)
 {
 	int size_to, size_from, file_to, file_from, close_file;
-	char buf[BUF_SIZE];
+	char buf[1024];
 
 	if (arc != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from fileto\n"), exit(97);
@@ -25,7 +25,7 @@ int main(int arc, char **arv)
 	if (file_from == -1)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arv[1]), exit(98);
 
-	size_from = read(file_from, buf, BUF_SIZE);
+	size_from = read(file_from, buf, 1024);
 	if (size_from == -1)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", arv[1]), exit(98);
 
@@ -35,7 +35,7 @@ int main(int arc, char **arv)
 
 	while (size_from == 1024)
 	{
-		size_from = read(file_from, buf, BUF_SIZE);
+		size_from = read(file_from, buf, 1024);
 		size_to = write(file_to, buf, size_from);
 	}
 
