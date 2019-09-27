@@ -1,0 +1,10 @@
+[submodule "holbertonschool-low_level_programming"]
+	path = holbertonschool-low_level_programming
+	url = https://github.com/monicajaimesc/holbertonschool-low_level_programming.git
+	branch = master
+[submodule "monty"]
+	path = monty
+	url = https://github.com/monicajaimesc/monty.git
+[submodule "0x19-stacks_queues_lifo_fifo"]
+	path = 0x19-stacks_queues_lifo_fifo
+	url = https://github.com/monicajaimesc/monty
