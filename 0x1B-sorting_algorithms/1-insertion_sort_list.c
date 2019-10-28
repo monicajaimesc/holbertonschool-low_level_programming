@@ -30,7 +30,7 @@ void insertion_sort_list(listint_t **list)
 			actual_node->next->prev = actual_node;
 			if (actual_node->prev == NULL)
             {
-				*list = actual_node;
+				list = actual_node;
             }
 			else
 				actual_node->prev->next = actual_node;
