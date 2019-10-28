@@ -16,6 +16,7 @@ void insertion_sort_list(listint_t **list)
 	while (actual_node != NULL)
 	{
 		next_node = actual_node->next;
+        
 		while (actual_node->prev != NULL && actual_node->prev->n > actual_node->n)
 		{
 			actual_node->prev->next = actual_node->next;
@@ -23,6 +24,7 @@ void insertion_sort_list(listint_t **list)
             {
 				actual_node->next->prev = actual_node->prev;
             }
+            /* modify connections of the linked list */
 			actual_node->next = actual_node->prev;
 			actual_node->prev = actual_node->next->prev;
 			actual_node->next->prev = actual_node;
@@ -35,7 +37,7 @@ void insertion_sort_list(listint_t **list)
 			print_list(*list);
 		}
 		actual_node = next_node;
-	}
+    }
 }
 
 
