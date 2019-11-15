@@ -1,0 +1,8 @@
+# MakeFile: rules all, variables: CC, SRC, OBJ, NAME
+CC = gcc
+SRC = holberton.c main.c
+OBJ = $(SRC:.c=.o)
+NAME = holberton
+all: $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
