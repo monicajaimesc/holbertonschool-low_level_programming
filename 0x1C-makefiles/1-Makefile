@@ -1,0 +1,5 @@
+# MakeFile: rules all, variables CC, SRC
+CC = gcc
+SRC	= holberton.c main.c
+all: $(SRC)
+	$(CC) $(SRC) -o holberton 

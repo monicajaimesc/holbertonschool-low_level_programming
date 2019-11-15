@@ -1,0 +1,6 @@
+# MakeFile: compile every single line regardless of whatever is
+# target: dependencies
+#	action
+
+all: holberton.c main.c m.h
+		gcc main.c holberton.c -o holberton
