@@ -12,7 +12,7 @@ size_t binary_tree_nodes(const binary_tree_t *tree)
 	size_t size_right;
 
 	if (tree == NULL)
-		return (NULL);
+		return (0);
 
 	if (tree->left != NULL)
 		size_left = (binary_tree_nodes(tree->left));
